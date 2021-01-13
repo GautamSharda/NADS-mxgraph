@@ -10,4 +10,4 @@ To deploy it on your local device after downloading this repository, you must in
 
 ## why does this include a .php file?
 
-That file doesn't actually do anything, Heroku requires that applications have a backend before it deploys them, so I had to include it.
+That file doesn't actually do anything, Heroku requires that applications have a backend before it deploys them, so that had to be include it.
