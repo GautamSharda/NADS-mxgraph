@@ -1,0 +1,3593 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<NADS xmlns="http://www.nads-sc.uiowa.edu/XML/">
+  <miniSim>
+    <HardwareInterface version="1.0">
+      <Devices>
+        <Device name="FanatecClubSport" kind="Endpoint">
+          <!-- DrV:311 ; FWV: 474; FANATECdriverPackage: 8.32.0  -->
+          <Settings>
+            <Setting name="Name" type="string" unit="none">
+              FANATEC ClubSport Wheel Base V2.5
+            </Setting>
+            <Setting name="Feedback Gain" type="double" unit="none">
+              0.25
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Constant Feedback" type="double" />
+            <Sink name="Positive Spring Feedback" type="double" />
+            <Sink name="Negative Spring Feedback" type="double" />
+            <Sink name="Damper Feedback Value" type="double" />
+            <Sink name="Damper Feedback Offset" type="double" />
+            <Sink name="Fundamental Sinusoidal Feedback Force" type="double" />
+            <Sink name="Fundamental Sinusoidal Feedback Frequency" type="double" />
+            <Sink name="Secondary Sinusoidal Feedback Force" type="double" />
+            <Sink name="Secondary Sinusoidal Feedback Frequency" type="double" />
+            <Source name="Steering Wheel" type="float" />
+            <Source name="Steering Wheel Rate" type="float" />
+            <Source name="Clutch" type="float" />
+            <Source name="Accelerator" type="float" />
+            <Source name="X Rotation" type="float" />
+            <Source name="Y Rotation" type="float" />
+            <Source name="Brake" type="float" />
+
+            <Source name="Right Shoulder Button" type="bool" />
+            <Source name="A Button" type="bool" />
+            <Source name="Right Trigger" type="bool" />
+            <Source name="Right Button" type="bool" />
+            <Source name="Right Paddle" type="bool" />
+            <Source name="Left Paddle" type="bool" />
+            <Source name="Left Shoulder Button" type="bool" />
+            <Source name="Left Trigger" type="bool" />
+            <Source name="View Button" type="bool" />
+            <Source name="Y Button" type="bool" />
+            <Source name="Menu Button" type="bool" />
+            <Source name="Left Button" type="bool" />
+            <Source name="X Button" type="bool" />
+            <Source name="Xbox Button" type="bool" />
+            <Source name="B Button" type="bool" />
+
+            <Source name="Button 42" type="bool" /><!-- Horn -->
+            <Source name="Button 17" type="bool" /><!-- NOP -->
+            <Source name="Button 18" type="bool" /><!-- NOP -->
+            <Source name="Button 19" type="bool" /><!-- NOP -->
+            <Source name="Button 20" type="bool" /><!-- NOP -->
+            <Source name="Button 21" type="bool" /><!-- NOP -->
+            <Source name="Button 23" type="bool" /><!-- NOP -->
+            <Source name="Button 24" type="bool" /><!-- NOP -->
+            <Source name="Button 27" type="bool" /><!-- NOP -->
+            <Source name="Button 28" type="bool" /><!-- NOP -->
+            <Source name="Button 29" type="bool" /><!-- NOP -->
+            <Source name="Button 30" type="bool" /><!-- NOP -->
+            <Source name="Button 31" type="bool" /><!-- NOP -->
+            <Source name="Button 32" type="bool" /><!-- NOP -->
+          </Ports>
+        </Device>
+        <Device name="ButtonBox" kind="Endpoint">
+          <!--          <Settings>
+            <Setting name="Name" type="string" unit="none">
+              BU0836-LC Interface
+            </Setting>
+          </Settings> -->
+          <Ports>
+            <Source name="Button 1" type="bool" />
+            <Source name="Button 2" type="bool" />
+            <Source name="Button 3" type="bool" />
+            <Source name="Button 4" type="bool" />
+            <Source name="Button 5" type="bool" />
+            <Source name="Button 6" type="bool" />
+            <Source name="Button 7" type="bool" />
+            <Source name="Button 8" type="bool" />
+            <Source name="Button 9" type="bool" />
+            <Source name="Button 10" type="bool" />
+            <Source name="Button 11" type="bool" />
+            <Source name="Button 12" type="bool" />
+            <Source name="Button 13" type="bool" />
+            <Source name="Button 14" type="bool" />
+            <Source name="Button 15" type="bool" />
+            <Source name="Button 16" type="bool" />
+          </Ports>
+        </Device>
+        <Device name="ShiftScaleCalibration" kind="Adapter" ID="Steering">
+          <Settings>
+            <Setting name="Shift" type="float" unit="none">
+              -450.0
+            </Setting>
+            <Setting name="Scale" type="float" unit="none">
+              900.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Clamp" kind="Adapter" ID="Steering">
+          <Settings>
+            <Setting name="Minimum" type="float" unit="none">
+              -450.0
+            </Setting>
+            <Setting name="Maximum" type="float" unit="none">
+              450.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="ShiftScaleCalibration" kind="Adapter" ID="SteeringRate">
+          <Settings>
+            <Setting name="Shift" type="float" unit="none">
+              0.0
+            </Setting>
+            <Setting name="Scale" type="float" unit="none">
+              900.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Clamp" kind="Adapter" ID="SteeringRate">
+          <Settings>
+            <Setting name="Minimum" type="float" unit="none">
+              -900.0
+            </Setting>
+            <Setting name="Maximum" type="float" unit="none">
+              900.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="ShiftScaleCalibration" kind="Adapter" ID="Accelerator">
+          <Settings>
+            <Setting name="Shift" type="float" unit="none">
+              1.0
+            </Setting>
+            <Setting name="Scale" type="float" unit="none">
+              -1.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Clamp" kind="Adapter" ID="Accelerator">
+          <Settings>
+            <Setting name="Minimum" type="float" unit="none">
+              0.0
+            </Setting>
+            <Setting name="Maximum" type="float" unit="none">
+              1.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="PiecewiseLinearFunction" kind="Adapter" ID="Brake">
+          <Settings>
+            <Setting name="Point Table" type="map" unit="none">
+              <Entry>
+                <Key type="float" unit="none"> 0.000 </Key>
+                <Value type="float" unit="none"> 0.000 </Value>
+              </Entry>
+              <!-- <Entry>
+                <Key type="float" unit="none"> 0.019 </Key>
+                <Value type="float" unit="none"> 0.540 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.037 </Key>
+                <Value type="float" unit="none"> 1.080 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.056 </Key>
+                <Value type="float" unit="none"> 1.620 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.075 </Key>
+                <Value type="float" unit="none"> 2.160 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.094 </Key>
+                <Value type="float" unit="none"> 2.700 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.113 </Key>
+                <Value type="float" unit="none"> 3.240 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.133 </Key>
+                <Value type="float" unit="none"> 3.780 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.153 </Key>
+                <Value type="float" unit="none"> 4.500 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.172 </Key>
+                <Value type="float" unit="none"> 5.040 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.192 </Key>
+                <Value type="float" unit="none"> 5.760 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.213 </Key>
+                <Value type="float" unit="none"> 6.480 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.233 </Key>
+                <Value type="float" unit="none"> 7.200 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.254 </Key>
+                <Value type="float" unit="none"> 7.920 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.275 </Key>
+                <Value type="float" unit="none"> 8.640 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.297 </Key>
+                <Value type="float" unit="none"> 9.540 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.318 </Key>
+                <Value type="float" unit="none"> 10.44 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.340 </Key>
+                <Value type="float" unit="none"> 11.34 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.363 </Key>
+                <Value type="float" unit="none"> 12.24 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.386 </Key>
+                <Value type="float" unit="none"> 13.32 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.409 </Key>
+                <Value type="float" unit="none"> 14.40 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.433 </Key>
+                <Value type="float" unit="none"> 15.48 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.457 </Key>
+                <Value type="float" unit="none"> 16.74 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.482 </Key>
+                <Value type="float" unit="none"> 18.18 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.508 </Key>
+                <Value type="float" unit="none"> 19.62 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.534 </Key>
+                <Value type="float" unit="none"> 21.24 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.561 </Key>
+                <Value type="float" unit="none"> 22.86 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.589 </Key>
+                <Value type="float" unit="none"> 24.84 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.617 </Key>
+                <Value type="float" unit="none"> 27.18 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.647 </Key>
+                <Value type="float" unit="none"> 29.52 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.679 </Key>
+                <Value type="float" unit="none"> 32.40 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.712 </Key>
+                <Value type="float" unit="none"> 35.82 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.746 </Key>
+                <Value type="float" unit="none"> 39.78 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.783 </Key>
+                <Value type="float" unit="none"> 44.82 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.823 </Key>
+                <Value type="float" unit="none"> 51.12 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.867 </Key>
+                <Value type="float" unit="none"> 59.58 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.916 </Key>
+                <Value type="float" unit="none"> 72.00 </Value>
+              </Entry>
+              <Entry>
+                <Key type="float" unit="none"> 0.973 </Key>
+                <Value type="float" unit="none"> 93.06 </Value>
+              </Entry> -->
+              <Entry>
+                <Key type="float" unit="none"> 1.000 </Key>
+                <Value type="float" unit="none"> 180.0 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Clamp" kind="Adapter" ID="Brake">
+          <Settings>
+            <Setting name="Minimum" type="float" unit="none">
+              0.0
+            </Setting>
+            <Setting name="Maximum" type="float" unit="none">
+              180.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Upshift">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Upshift">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Increment" kind="Adapter" ID="Upshift">
+          <Settings>
+            <Setting name="Step" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Sink name="Enable" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Clamp" kind="Adapter" ID="Upshift">
+          <Settings>
+            <Setting name="Minimum" type="short" unit="none">
+              -2
+            </Setting>
+            <Setting name="Maximum" type="short" unit="none">
+              3
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Downshift">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Downshift">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Increment" kind="Adapter" ID="Downshift">
+          <Settings>
+            <Setting name="Step" type="short" unit="none">
+              -1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Sink name="Enable" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Clamp" kind="Adapter" ID="Downshift">
+          <Settings>
+            <Setting name="Minimum" type="short" unit="none">
+              -2
+            </Setting>
+            <Setting name="Maximum" type="short" unit="none">
+              3
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="Shifter">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="SetReset" kind="Adapter" ID="Shifter">
+          <Ports>
+            <Sink name="Set" type="bool" unit="none" />
+            <Sink name="Reset" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="ShifterDisplay">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="short" unit="none"> -2 </Key>
+                <Value type="short" unit="none"> -2 </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> -1 </Key>
+                <Value type="short" unit="none"> -1 </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 0 </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 1 </Key>
+                <Value type="short" unit="none"> 3 </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 2 </Key>
+                <Value type="short" unit="none"> 2 </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 3 </Key>
+                <Value type="short" unit="none"> 1 </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 4 </Key>
+                <Value type="short" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="EngineRun">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="EngineRun">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="EngineRun">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="EngineRun">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="AND" kind="Adapter" ID="EngineRun">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="SetReset" kind="Adapter" ID="EngineRun">
+          <Ports>
+            <Sink name="Set" type="bool" unit="none" />
+            <Sink name="Reset" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="EngineRun">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="int" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="int" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="int" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="EngineStart">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="EngineStart">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="EngineStart">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="int" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="int" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="int" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Comparator" kind="Adapter" ID="EqualsPark">
+          <Settings>
+            <Setting name="Match" type="short" unit="none">
+              -2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Comparator" kind="Adapter" ID="EqualsNeutral">
+          <Settings>
+            <Setting name="Match" type="short" unit="none">
+              0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="OR" kind="Adapter" ID="Interlock">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="Interlock">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="TransmissionGear">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 1 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Horn">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="Horn">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="int" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="int" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="int" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Cruise">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Cruise">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="Cruise">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="Cruise">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="short" unit="none"> 2 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Headlights">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Headlights">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="Headlights">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="Headlights">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="short" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Highbeams">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Highbeams">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="Highbeams">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="Highbeams">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="short" unit="none"> 2 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="ParkingBrake">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="ParkingBrake">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="ParkingBrake">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="ParkingBrake">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="short" unit="none"> 2 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="TurnOff">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="TurnOn">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+      
+        <Device name="Initializer" kind="Adapter" ID="Drive">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              3
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="False">
+          <Settings>
+            <Setting name="InitialValue" type="bool" unit="none">
+              false
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="True">
+          <Settings>
+            <Setting name="InitialValue" type="bool" unit="none">
+              true
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="LeftTurn">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+
+        <Device name="EdgeDetection" kind="Adapter" ID="LeftTurn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="LeftTurn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+
+        <Device name="Inverter" kind="Adapter" ID="LeftTurn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="LeftTurnTrue">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="LeftTurnFalse">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="LeftTurn">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="RightTurn">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+
+        <Device name="EdgeDetection" kind="Adapter" ID="RightTurn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="RightTurn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+
+        <Device name="Inverter" kind="Adapter" ID="RightTurn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="RightTurn">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              3
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="RightTurn">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="Hazards">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Hazards">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="Hazards">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="Hazards">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              4
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="Hazards">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="LookLeft">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="NoTurning">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="LookLeft">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="LookLeft">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="LookRight">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="LookRight">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="LookRight">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="LeftShoulder">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="LeftShoulder">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              3
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="LeftShoulder">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="RightShoulder">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="RightShoulder">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              4
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="RightShoulder">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <!--        <Device name="Debounce" kind="Adapter" ID="LookBack">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="LookBack">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              5
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="LookBack">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device> -->
+        <Device name="Debounce" kind="Adapter" ID="Wipers">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="Wipers">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="Wipers">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="Wipers">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="short" unit="none"> 2 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="MirrorSelect">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              30
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="MirrorSelect">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="MirrorSelect">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="MirrorUp">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="MirrorUp">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="MirrorDown">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="MirrorDown">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="MirrorLeft">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="MirrorLeft">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="MirrorRight">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="MirrorRight">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="MirrorEncoder" kind="Adapter" ID="Mirror">
+          <Ports>
+            <Sink name="Select" type="bool" unit="none" />
+            <Sink name="Up" type="bool" unit="none" />
+            <Sink name="Down" type="bool" unit="none" />
+            <Sink name="Left" type="bool" unit="none" />
+            <Sink name="Right" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="SteeringFeedbackModel" kind="Adapter" ID="SteeringFeedbackModel">
+          <Settings>
+            <Setting name="Steer Pinion Moment Arm" type="double" unit="none">
+              0.065
+            </Setting>
+            <Setting name="Stiffness Kick-in Speed" type="double" unit="none">
+              120.0
+            </Setting>
+            <Setting name="Stiffness Saturation Speed" type="double" unit="none">
+              121.0
+            </Setting>
+            <Setting name="Rack Stiffness Linear Coefficient" type="double" unit="none">
+              0.140
+            </Setting>
+            <Setting name="Rack Stiffness Quadratic Coefficient" type="double" unit="none">
+              0.0
+            </Setting>
+            <Setting name="Nominal Rack Stiffness" type="double" unit="none">
+              8.25
+            </Setting>
+            <Setting name="Maximum Dynamic Torque Feedback" type="double" unit="none">
+              40.0
+            </Setting>
+            <Setting name="Spring Gain" type="double" unit="none">
+              0.0075
+            </Setting>
+            <Setting name="Damping Low Speed" type="double" unit="none">
+              30.0
+            </Setting>
+            <Setting name="Damping High Speed" type="double" unit="none">
+              120.0
+            </Setting>
+            <Setting name="Low Speed Damping Coefficient" type="double" unit="none">
+              0.2
+            </Setting>
+            <Setting name="High Speed Damping Coefficient" type="double" unit="none">
+              0.03
+            </Setting>
+            <Setting name="Damper Gain" type="double" unit="none">
+              0.5
+            </Setting>
+            <Setting name="Engine Harmonic Gain" type="double" unit="none">
+              0.00001
+            </Setting>
+            <Setting name="Engine Cylinder Count" type="double" unit="none">
+              6.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Steering Wheel Angle" type="float" unit="none" />
+            <Sink name="Steering Wheel Rate" type="float" unit="none" />
+            <Sink name="Engine RPM" type="float" unit="none" />
+            <Sink name="Engine Torque" type="float" unit="none" />
+            <Sink name="Vehicle Speed" type="float" unit="none" />
+            <Source name="Constant" type="double" unit="none" />
+            <Source name="Positive Spring" type="double" unit="none" />
+            <Source name="Negative Spring" type="double" unit="none" />
+            <Source name="Damping Factor" type="double" unit="none" />
+            <Source name="Damping Offset" type="double" unit="none" />
+            <Source name="Fundamental Sinusoidal Force" type="double" unit="none" />
+            <Source name="Fundamental Sinusoidal Frequency" type="double" unit="none" />
+            <Source name="Secondary Sinusoidal Force" type="double" unit="none" />
+            <Source name="Secondary Sinusoidal Frequency" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="SimulatorInterface" kind="Endpoint">
+          <Ports>
+            <Sink name="CFS_Steering_Wheel_Angle" type="float" unit="none" />
+            <Sink name="CFS_Steering_Wheel_Angle_Rate" type="float" unit="none" />
+            <Sink name="CFS_Accelerator_Pedal_Position" type="float" unit="none" />
+            <Sink name="CFS_Brake_Pedal_Force" type="float" unit="none" />
+            <Sink name="CFS_Auto_Transmission_Mode" type="short" unit="none" />
+            <Sink name="CIS_Gear" type="short" unit="none">
+              <DefaultValue>
+                -2
+              </DefaultValue>
+            </Sink>
+            <Sink name="CFS_TRANS_Igntn" type="int" unit="none" />
+            <Sink name="CFS_TRANS_Crnk_Psh_Btn" type="int" unit="none" />
+            <Sink name="CIS_Horn" type="int" unit="none" />
+            <Sink name="CIS_Headlights_On" type="short" unit="none" />
+            <Sink name="CIS_High_Beam" type="short" unit="none" />
+            <Sink name="CIS_Parking_Brake_Engaged" type="short" unit="none" />
+            <Sink name="CIS_Parking_Brake_Displacement" type="float" unit="none">
+              <DefaultValue>
+                0.0
+              </DefaultValue>
+            </Sink>
+            <Sink name="CIS_Turn_Signal" type="short" unit="none" />
+            <Sink name="CIS_Cruise_Control" type="short" unit="none" />
+            <Sink name="CIS_Seat_Belt_On" type="short" unit="none" />
+            <Sink name="CIS_Auto_Ignition" type="short" unit="none" />
+            <Sink name="CIS_Wiper_Switch_State" type="short" unit="none" />
+            <Sink name="CIS_Mirror_Adjustment_Switches" type="short" unit="none" />
+            <Sink name="CIS_Head_Turning_Switches" type="short" unit="none" />
+            
+            <!-- BEGIN: CC, ACC and ALF -->
+            <Bus name="CIS_Auxiliary_Buttons">
+                <Sink index="2" type="float" unit="none">
+                  <DefaultValue> 0 </DefaultValue>
+                </Sink>
+                <Sink index="3" type="float" unit="none">
+                  <DefaultValue> 0 </DefaultValue>
+                </Sink>
+            </Bus>
+            <!-- END: CC, ACC and ALF -->
+            
+            <Source name="CIS_Gear" type="short" unit="none" />
+            <Source name="VDS_Veh_Eng_RPM" type="float" unit="none" />
+            <Source name="VDS_Veh_Eng_Torque" type="float" unit="none" />
+            <Source name="VDS_Veh_Speed" type="float" unit="none" />
+
+            <Source name="VDS_TRANS_Eng_Rnng" type="int" unit="none" />
+            <!-- BEGIN: CC, ACC and ALF -->
+            <Source name="VDS_Cruise_State" type="short" unit="none" />
+            <!-- END: CC, ACC and ALF -->
+
+            <!-- BEGIN: AD move SW-->
+            <Source name="VDS_ALF_State" type="short" unit="none" />
+            <Source name="VDS_Steering_Wheel_Angle" type="float" unit="none" />            
+            <Bus name="VDS_Wheel_Steer_Angle">
+              <Source index="0" type="float" unit="none" />
+              <Source index="1" type="float" unit="none" />
+            </Bus>
+            
+            <Source name="SCC_AutoDriver_GasBrake_Status" type="int" unit="none" /> <!-- alpha -->
+            <!-- END: AD move SW-->
+
+            <!-- BEGING: AD -->
+            <!-- <Sink name="SCC_AutoDriver_Mode" type="int" unit="none" />
+            <Source name="SCC_AutoDriver_Mode" type="int" unit="none" />
+            <Sink name="SCC_AutoDriver_Setspeed" type="float" unit="none" />
+            <Sink name="SCC_AutoDriver_Command" type="short" unit="none" /> -->
+            <!-- BEGING: SCC_AutoDriver_ISAT_HI_Interface -->
+            <Sink name="SCC_AD_ISAT_HI_Final" type="int" unit="none" /> <!-- Bf_t1 -->
+            <Source name="SCC_AutoDriver_ISAT_HI_Interface" type="int" unit="none" />
+            <Sink name="SCC_AutoDriver_ISAT_HI_Interface" type="int" unit="none" /> <!-- Br_t1 -->
+            <!-- END: SCC_AutoDriver_ISAT_HI_Interface -->
+            <Source name="SCC_AutoDriver_ONOFF_ISAT" type="int" unit="none" />
+            <!-- END: AD -->
+          </Ports>
+        </Device>
+        <!-- BEGIN: AD -->
+        <Device name="Debounce" kind="Adapter" ID="autodriver">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="autodriver">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="autodriver">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="autodriver">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="autodriver">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="int" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="int" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="int" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="autodriver2">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="int" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none"> true </Key>
+                <Value type="int" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="int" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="AutoDriver">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              35
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="AutoDriverCommand">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              119
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <!-- END: AD -->
+
+        <!-- BEGIN: AD move SW-->
+        <Device name="LookupTable" kind="Adapter" ID="SteeringTracker">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="short" unit="none"> 0 </Key>
+                <Value type="bool" unit="none"> false </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 1 </Key>
+                <Value type="bool" unit="none"> true </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="SteeringAngleTracker" kind="Adapter" ID="SteeringTracker">
+          <Settings>
+            <Setting name="Steering Ratio" type="double" unit="none">
+              30.00 <!-- 30 20 15 13 11.25 -->
+            </Setting>
+            <Setting name="Torque Gain" type="double" unit="none">
+              1.0e-2  <!-- 0.1  -->
+            </Setting>
+            <Setting name="Damping Strength" type="double" unit="none">
+              1.0e-1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Steer Angle for Front Left Wheel" type="float" unit="none" />
+            <Sink name="Steer Angle for Front Right Wheel" type="float" unit="none" />
+            <Sink name="Vehicle Speed" type="float" unit="mph" />
+            <Sink name="Steering Wheel Angle" type="float" unit="degrees" />
+            <Sink name="System Active" type="bool" unit="none" />
+            <Source name="Constant" type="double" unit="none" />
+            <Source name="Damping Factor" type="double" unit="none" />
+            <Source name="Damping Offset" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Subtracter" kind="Adapter" ID="NegateTracker">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        
+        <Device name="Initializer" kind="Adapter" ID="ZeroAsFloat">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              0.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ZeroAsDouble">
+          <Settings>
+            <Setting name="InitialValue" type="double" unit="none">
+              0.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="from_C3_StatusMotionSW">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="int" unit="none"> 0 </Key>
+                <Value type="bool" unit="none"> false </Value>
+              </Entry>
+              <Entry>
+                <Key type="int" unit="none">  1 </Key>
+                <Value type="bool" unit="none"> true </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="int" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="ToggleStatusMotionSW1">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none">  true </Key>
+                <Value type="short" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="ToggleStatusMotionSW2">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="bool" unit="none"> false </Key>
+                <Value type="short" unit="none"> 0 </Value>
+              </Entry>
+              <Entry>
+                <Key type="bool" unit="none">  true </Key>
+                <Value type="short" unit="none"> 1 </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+
+         <Device name="Inverter" kind="Adapter" ID="InverterStatusMotionSW">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="StatusMotionSW_Multiplexer">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="MultiFinalStatusMotionSW">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="short" unit="none"> 0 </Key>
+                <Value type="bool" unit="none"> false </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none">  1 </Key>
+                <Value type="bool" unit="none"> true </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <!-- END: AD move SW-->
+
+        <!-- BEGIN: CC, ACC and ALF --> <!-- =================================== -->
+        <!-- BEGIN: ACC and ALF -->
+        <Device name="Initializer" kind="Adapter" ID="OneAsShort">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="TwoAsShort">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ThreeAsShort">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              3
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="FourAsShort">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              4
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <!-- END: ACC and ALF -->
+        <!-- BEGIN: ACC and ALF -->
+        <Device name="Initializer" kind="Adapter" ID="CCOff">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              0.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="CCOn">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              1.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="CCSet">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              2.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="CCResume">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              3.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="CCCancel">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              4.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="CCCancel">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="CCSet">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="CCResume">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="CruiseControl">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="CruiseControl">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Toggle" kind="Adapter" ID="CruiseControl">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="CruiseControl">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              16
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="float" unit="none" />
+            <Sink name="Input 1" type="float" unit="none" />
+            <Sink name="Input 2" type="float" unit="none" />
+            <Sink name="Input 3" type="float" unit="none" />
+            <Sink name="Input 4" type="float" unit="none" />
+            <Sink name="Input 5" type="float" unit="none" />
+            <Sink name="Input 6" type="float" unit="none" />
+            <Sink name="Input 7" type="float" unit="none" />
+            <Sink name="Input 8" type="float" unit="none" />
+            <Sink name="Input 9" type="float" unit="none" />
+            <Sink name="Input 10" type="float" unit="none" />
+            <Sink name="Input 11" type="float" unit="none" />
+            <Sink name="Input 12" type="float" unit="none" />
+            <Sink name="Input 13" type="float" unit="none" />
+            <Sink name="Input 14" type="float" unit="none" />
+            <Sink name="Input 15" type="float" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Sink name="Select 1" type="bool" unit="none" />
+            <Sink name="Select 2" type="bool" unit="none" />
+            <Sink name="Select 3" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+
+        <Device name="Initializer" kind="Adapter" ID="ACCNOP">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              0.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ACC">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              1.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ALF">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              5.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ACCRecall">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              2.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ACCIncrease">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              3.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ACCDecrease">
+          <Settings>
+            <Setting name="InitialValue" type="float" unit="none">
+              4.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <!-- BEGIN: ACC and ALF -->
+        <Device name="EqualityTester" kind="Adapter" ID="EqualsCCOn">
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EqualityTester" kind="Adapter" ID="EqualsCCSet">
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="OR" kind="Adapter" ID="EqualsCCOnOrSet">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="AND" kind="Adapter" ID="EngageACC">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="TriggerACCOn">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EqualityTester" kind="Adapter" ID="EqualsACCOn">
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EqualityTester" kind="Adapter" ID="EqualsACCSet">
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="OR" kind="Adapter" ID="EqualsACCOnOrSet">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="DisengageACC">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="EdgeDetection" kind="Adapter" ID="TriggerACCOff">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="AND" kind="Adapter" ID="DisengageACC">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="OR" kind="Adapter" ID="ControlACC">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Inverter" kind="Adapter" ID="ProlongCC">
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="OR" kind="Adapter" ID="ControlCC">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="bool" unit="none" />
+            <Sink name="Input 1" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <!-- END: ACC and ALF -->
+        <Device name="Debounce" kind="Adapter" ID="ACCDecrease">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="ACCIncrease">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="ACCRecall">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Debounce" kind="Adapter" ID="ALF">
+          <Settings>
+            <Setting name="Delay" type="duration" unit="milliseconds">
+              15
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="bool" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="ALF">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              32
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="float" unit="none" />
+            <Sink name="Input 1" type="float" unit="none" />
+            <Sink name="Input 2" type="float" unit="none" />
+            <Sink name="Input 3" type="float" unit="none" />
+            <Sink name="Input 4" type="float" unit="none" />
+            <Sink name="Input 5" type="float" unit="none" />
+            <Sink name="Input 6" type="float" unit="none" />
+            <Sink name="Input 7" type="float" unit="none" />
+            <Sink name="Input 8" type="float" unit="none" />
+            <Sink name="Input 9" type="float" unit="none" />
+            <Sink name="Input 10" type="float" unit="none" />
+            <Sink name="Input 11" type="float" unit="none" />
+            <Sink name="Input 12" type="float" unit="none" />
+            <Sink name="Input 13" type="float" unit="none" />
+            <Sink name="Input 14" type="float" unit="none" />
+            <Sink name="Input 15" type="float" unit="none" />
+            <Sink name="Input 16" type="float" unit="none" />
+            <Sink name="Input 17" type="float" unit="none" />
+            <Sink name="Input 18" type="float" unit="none" />
+            <Sink name="Input 19" type="float" unit="none" />
+            <Sink name="Input 20" type="float" unit="none" />
+            <Sink name="Input 21" type="float" unit="none" />
+            <Sink name="Input 22" type="float" unit="none" />
+            <Sink name="Input 23" type="float" unit="none" />
+            <Sink name="Input 24" type="float" unit="none" />
+            <Sink name="Input 25" type="float" unit="none" />
+            <Sink name="Input 26" type="float" unit="none" />
+            <Sink name="Input 27" type="float" unit="none" />
+            <Sink name="Input 28" type="float" unit="none" />
+            <Sink name="Input 29" type="float" unit="none" />
+            <Sink name="Input 30" type="float" unit="none" />
+            <Sink name="Input 31" type="float" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Sink name="Select 1" type="bool" unit="none" />
+            <Sink name="Select 2" type="bool" unit="none" />
+            <Sink name="Select 3" type="bool" unit="none" />
+            <Sink name="Select 4" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        
+        <Device name="ALFController" kind="Adapter" ID="ALF">
+          <Settings>
+            <Setting name="Cancellation Angle" type="float" unit="deg">
+              8.0
+            </Setting>
+            <Setting name="Cancellation Torque" type="float" unit="N*m">
+              0.5
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Steering Angle" type="float" unit="none" />
+            <Sink name="Driver Torque" type="float" unit="none" />
+            <Sink name="ALF Button" type="bool" unit="none" />
+            <Sink name="ALF State" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        
+        <!-- END: ACC and ALF -->
+        <!-- END: CC, ACC and ALF   --> <!-- =================================== -->
+
+        <!-- BEGIN: Filter initial Signal -->
+        <Device name="FilterInitialSignal" kind="Adapter" ID="FilterBrakeSignal">
+          <Settings>
+            <Setting name="Filter Signal State" type="int" unit="1">   1   </Setting>
+            <Setting name="Filter Signal Model" type="int" unit="1">   1   </Setting>
+            <Setting name="Initial Correction for raw Input Signal" type="float" unit="1">   0.0 </Setting> 
+            <!-- 0 for brake, 1 for gas -->
+          </Settings>
+          <Ports>
+            <Sink name="in_RawSignal" type="float" unit="none" />                
+            <Source name="out_FilteredSignal" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="FilterInitialSignal" kind="Adapter" ID="FilterAcceleratorSignal">
+          <Settings>
+            <Setting name="Filter Signal State" type="int" unit="1">   1   </Setting>
+            <Setting name="Filter Signal Model" type="int" unit="1">   1   </Setting>
+            <Setting name="Initial Correction for raw Input Signal" type="float" unit="1">   1.0 </Setting> 
+            <!-- 0 for brake, 1 for gas -->
+          </Settings>
+          <Ports>
+            <Sink name="in_RawSignal" type="float" unit="none" />                
+            <Source name="out_FilteredSignal" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <!-- END: Filter initial Signal -->
+    
+        <Device name="LatchingTurnSignal" kind="Adapter" ID="TurnSignals">
+          <Ports>
+            <Sink name="LeftTurn" type="bool" unit="none" />
+            <Sink name="RightTurn" type="bool" unit="none" />
+            <Sink name="Hazards" type="bool" unit="none" />
+            <Sink name="SteeringAngle" type="float" unit="none" />
+            <Sink name="EngineOn" type="int" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+
+        <!-- BEGIN: missing devices for Steering Feddback Model -->
+        <Device name="LookupTable" kind="Adapter" ID="Table_LF_VDS_ALF_State">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="short" unit="none"> 0 </Key>
+                <Value type="bool" unit="none"> false </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 1 </Key>
+                <Value type="bool" unit="none"> true </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="Status_LF">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="Initialize_OFF_LF">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="Initialize_ON_LF">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="Initialize_ON_ADwithSwm">
+          <Settings>
+            <Setting name="InitialValue" type="short" unit="none">
+              1
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="short" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="Status_ADwithSwm">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="short" unit="none" />
+            <Sink name="Input 1" type="short" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="LTONOFF_02">
+          <Settings>
+                  <Setting name="Lookup Table" type="map" unit="none">
+                          <Entry>
+                                  <Key type="int" unit="none">0</Key>
+                                  <Value type="bool" unit="none">false</Value>
+                          </Entry>
+                          <Entry>
+                                  <Key type="int" unit="none">1</Key>
+                                  <Value type="bool" unit="none">true</Value>
+                          </Entry>
+                  </Setting>
+          </Settings>
+          <Ports>
+                  <Sink name="Input" type="int" unit="none" />
+                  <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="OneISAT">
+          <Settings>
+                  <Setting name="InitialValue" type="short" unit="none">1</Setting>
+          </Settings>
+          <Ports>
+                  <Sink name="Initialize" type="short" unit="none" />
+                  <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="SMotionFromISAToHI">
+          <Settings>
+                  <Setting name="Size" type="unsigned int" unit="none">2</Setting>
+          </Settings>
+          <Ports>
+                  <Sink name="Input 0" type="short" unit="none" />
+                  <Sink name="Input 1" type="short" unit="none" />
+                  <Sink name="Select 0" type="bool" unit="none" />
+                  <Source name="Output" type="short" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="LookupTable" kind="Adapter" ID="SteeringTracker">
+          <Settings>
+            <Setting name="Lookup Table" type="map" unit="none">
+              <Entry>
+                <Key type="short" unit="none"> 0 </Key>
+                <Value type="bool" unit="none"> false </Value>
+              </Entry>
+              <Entry>
+                <Key type="short" unit="none"> 1 </Key>
+                <Value type="bool" unit="none"> true </Value>
+              </Entry>
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input" type="short" unit="none" />
+            <Source name="Output" type="bool" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="Steering">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="float" unit="none" />
+            <Sink name="Input 1" type="float" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Buffer" kind="Adapter" ID="Steering">
+          <Ports>
+            <Sink name="Input" type="float" unit="none" />
+            <Source name="Output" type="float" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Subtracter" kind="Adapter" ID="NegateModel">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Initializer" kind="Adapter" ID="ZeroAsDouble">
+          <Settings>
+            <Setting name="InitialValue" type="double" unit="none">
+              0.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <!-- new placeholder for LKA -->
+        <Device name="Initializer" kind="Adapter" ID="LKAZero">
+          <Settings>
+            <Setting name="InitialValue" type="double" unit="none">
+              0.0
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Initialize" type="bool" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Subtracter" kind="Adapter" ID="NegateTracker">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Adder" kind="Adapter" ID="CombineConstant">
+          <Settings>
+            <Setting name="Size" type="size_t" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="ConstantFeedback">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="DamperFeedback">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <Device name="Multiplexer" kind="Adapter" ID="OffsetFeedback">
+          <Settings>
+            <Setting name="Size" type="unsigned int" unit="none">
+              2
+            </Setting>
+          </Settings>
+          <Ports>
+            <Sink name="Input 0" type="double" unit="none" />
+            <Sink name="Input 1" type="double" unit="none" />
+            <Sink name="Select 0" type="bool" unit="none" />
+            <Source name="Output" type="double" unit="none" />
+          </Ports>
+        </Device>
+        <!-- END: missing devices for Steering Feddback Model -->
+
+        <Device name="ConsoleOutput" kind="Endpoint">
+          <Ports>
+            <Sink name="Standard out" type="float" unit="none" />
+          </Ports>
+        </Device>
+
+      </Devices>
+      <Connections>
+        <Source device="FanatecClubSport" port="Steering Wheel" ID="1">
+          <Sink device="ShiftScaleCalibration" port="Input" ID="Steering" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="ShiftScaleCalibration" port="Output" ID="Steering">
+          <Sink device="Clamp" port="Input" ID="Steering" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Steering">
+          <Sink device="SimulatorInterface" port="CFS_Steering_Wheel_Angle" ID="1" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- left: negative right:positive -->
+        </Source>
+        <Source device="FanatecClubSport" port="Steering Wheel Rate" ID="1">
+          <Sink device="ShiftScaleCalibration" port="Input" ID="SteeringRate" />
+        </Source>
+        <Source device="ShiftScaleCalibration" port="Output" ID="SteeringRate">
+          <Sink device="Clamp" port="Input" ID="SteeringRate" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="SteeringRate">
+          <Sink device="SimulatorInterface" port="CFS_Steering_Wheel_Angle_Rate" ID="1" />
+        </Source>
+
+        <!-- <Source device="FanatecClubSport" port="Clutch" ID="1">
+          <Sink device="ShiftScaleCalibration" port="Input" ID="Accelerator" />
+        </Source>
+        <Source device="ShiftScaleCalibration" port="Output" ID="Accelerator">
+          <Sink device="Clamp" port="Input" ID="Accelerator" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Accelerator">
+          <Sink device="SimulatorInterface" port="CFS_Accelerator_Pedal_Position" ID="1" />
+        </Source> -->
+        <Source device="FanatecClubSport" port="Clutch" ID="1">
+          <Sink device="FilterInitialSignal" port="in_RawSignal" ID="FilterAcceleratorSignal" />
+        </Source>
+        <Source device="FilterInitialSignal" port="out_FilteredSignal" ID="FilterAcceleratorSignal">
+          <Sink device="ShiftScaleCalibration" port="Input" ID="Accelerator" />
+        </Source>
+        <Source device="ShiftScaleCalibration" port="Output" ID="Accelerator">
+          <Sink device="Clamp" port="Input" ID="Accelerator" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Accelerator">
+          <Sink device="SimulatorInterface" port="CFS_Accelerator_Pedal_Position" ID="1" />
+        </Source>
+
+        <!-- <Source device="FanatecClubSport" port="Brake" ID="1">
+          <Sink device="PiecewiseLinearFunction" port="Input" ID="Brake" />
+        </Source>
+        <Source device="PiecewiseLinearFunction" port="Output" ID="Brake">
+          <Sink device="Clamp" port="Input" ID="Brake" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Brake">
+          <Sink device="SimulatorInterface" port="CFS_Brake_Pedal_Force" ID="1" />
+        </Source> -->
+        <Source device="FanatecClubSport" port="Brake" ID="1">
+          <Sink device="FilterInitialSignal" port="in_RawSignal" ID="FilterBrakeSignal" />
+        </Source>
+        <Source device="FilterInitialSignal" port="out_FilteredSignal" ID="FilterBrakeSignal">
+          <Sink device="PiecewiseLinearFunction" port="Input" ID="Brake" />
+        </Source>
+        <Source device="PiecewiseLinearFunction" port="Output" ID="Brake">
+          <Sink device="Clamp" port="Input" ID="Brake" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Brake">
+          <Sink device="SimulatorInterface" port="CFS_Brake_Pedal_Force" ID="1" />
+        </Source>
+
+        <Source device="SimulatorInterface" port="CIS_Gear" ID="1">
+          <Sink device="Increment" port="Input" ID="Upshift" />
+        </Source>
+        <Source device="ButtonBox" port="Button 6" ID="1">
+          <Sink device="Debounce" port="Input" ID="Upshift" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="Upshift">
+          <Sink device="EdgeDetection" port="Input" ID="Upshift" />
+          <Sink device="SetReset" port="Set" ID="Shifter" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Upshift">
+          <Sink device="Increment" port="Enable" ID="Upshift" />
+        </Source>
+        <Source device="Increment" port="Output" ID="Upshift">
+          <Sink device="Clamp" port="Input" ID="Upshift" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Upshift">
+          <Sink device="Multiplexer" port="Input 1" ID="Shifter" />
+        </Source>
+        <Source device="SimulatorInterface" port="CIS_Gear" ID="1">
+          <Sink device="Increment" port="Input" ID="Downshift" />
+        </Source>
+        <Source device="ButtonBox" port="Button 10" ID="1">
+          <Sink device="Debounce" port="Input" ID="Downshift" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="Downshift">
+          <Sink device="EdgeDetection" port="Input" ID="Downshift" />
+          <Sink device="SetReset" port="Reset" ID="Shifter" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Downshift">
+          <Sink device="Increment" port="Enable" ID="Downshift" />
+        </Source>
+        <Source device="Increment" port="Output" ID="Downshift">
+          <Sink device="Clamp" port="Input" ID="Downshift" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Downshift">
+          <Sink device="Multiplexer" port="Input 0" ID="Shifter" />
+        </Source>
+        <Source device="SetReset" port="Output" ID="Shifter">
+          <Sink device="Multiplexer" port="Select 0" ID="Shifter" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="Shifter">
+          <Sink device="SimulatorInterface" port="CIS_Gear" ID="1" />
+          <Sink device="LookupTable" port="Input" ID="ShifterDisplay" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="ShifterDisplay">
+          <Sink device="SimulatorInterface" port="CFS_Auto_Transmission_Mode" ID="1" />
+        </Source>
+        <!--        <Source device="ButtonBox" port="Button 4" ID="1">
+          <Sink device="Debounce" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineRun">
+          <Sink device="AND" port="Input 0" ID="EngineRun" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineRun">
+          <Sink device="Inverter" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="AND" port="Output" ID="EngineRun">
+          <Sink device="SetReset" port="Set" ID="EngineRun" />
+        </Source>
+        <Source device="Inverter" port="Output" ID="EngineRun">
+          <Sink device="SetReset" port="Reset" ID="EngineRun" />
+        </Source>
+        <Source device="SetReset" port="Output" ID="EngineRun">
+          <Sink device="LookupTable" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="EngineRun">
+          <Sink device="SimulatorInterface" port="CFS_TRANS_Igntn" ID="1" />
+        </Source>
+        <Source device="ButtonBox" port="Button 4" ID="1">
+          <Sink device="Debounce" port="Input" ID="EngineStart" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineStart">
+          <Sink device="AND" port="Input 1" ID="EngineRun" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineStart">
+          <Sink device="LookupTable" port="Input" ID="EngineStart" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="EngineStart">
+          <Sink device="SimulatorInterface" port="CFS_TRANS_Crnk_Psh_Btn" ID="1" />
+        </Source> -->
+        <Source device="Comparator" port="Output" ID="EqualsNeutral">
+          <Sink device="LookupTable" port="Input" ID="TransmissionGear" />
+        </Source>
+        <!-- <Source device="LookupTable" port="Output" ID="TransmissionGear">
+          <Sink device="SimulatorInterface" port="CFS_Transmission_Gear" ID="1" />
+        </Source> -->
+        <Source device="ButtonBox" port="Button 4" ID="1">
+          <Sink device="Debounce" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineRun">
+          <Sink device="EdgeDetection" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="EngineRun">
+          <Sink device="Toggle" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="EngineRun">
+          <Sink device="AND" port="Input 0" ID="EngineRun" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineRun">
+          <Sink device="SetReset" port="Reset" ID="EngineRun" />
+        </Source>
+        <Source device="AND" port="Output" ID="EngineRun">
+          <Sink device="SetReset" port="Set" ID="EngineRun" />
+        </Source>
+        <Source device="SetReset" port="Output" ID="EngineRun">
+          <Sink device="LookupTable" port="Input" ID="EngineRun" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="EngineRun">
+          <Sink device="SimulatorInterface" port="CFS_TRANS_Igntn" ID="1" />
+        </Source>
+        <Source device="SimulatorInterface" port="CIS_Gear" ID="1">
+          <Sink device="Comparator" port="Input" ID="EqualsPark" />
+          <Sink device="Comparator" port="Input" ID="EqualsNeutral" />
+        </Source>
+        <Source device="Comparator" port="Output" ID="EqualsPark">
+          <Sink device="OR" port="Input 0" ID="Interlock" />
+        </Source>
+        <Source device="Comparator" port="Output" ID="EqualsNeutral">
+          <Sink device="OR" port="Input 1" ID="Interlock" />
+        </Source>
+        <Source device="OR" port="Output" ID="Interlock">
+          <Sink device="Multiplexer" port="Select 0" ID="Interlock" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="False">
+          <Sink device="Multiplexer" port="Input 0" ID="Interlock" />
+        </Source>
+        <Source device="ButtonBox" port="Button 4" ID="1">
+          <Sink device="Debounce" port="Input" ID="EngineStart" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="EngineStart">
+          <Sink device="Multiplexer" port="Input 1" ID="Interlock" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="Interlock">
+          <Sink device="AND" port="Input 1" ID="EngineRun" />
+          <Sink device="LookupTable" port="Input" ID="EngineStart" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="EngineStart">
+          <Sink device="SimulatorInterface" port="CFS_TRANS_Crnk_Psh_Btn" ID="1" />
+        </Source>
+        <!-- Next button assigned does not do anythiong at the moment -->
+        <!-- <Source device="FanatecClubSport" port="Right Paddle" ID="1"> -->
+        <Source device="FanatecClubSport" port="Button 42" ID="1">
+          <Sink device="Debounce" port="Input" ID="Horn" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Debounce" port="Output" ID="Horn">
+          <Sink device="LookupTable" port="Input" ID="Horn" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="Horn">
+          <Sink device="SimulatorInterface" port="CIS_Horn" ID="1" />
+        </Source>
+        <!-- <Source device="ButtonBox" port="Button 14" ID="1">
+          <Sink device="Debounce" port="Input" ID="Cruise" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="Cruise">
+          <Sink device="EdgeDetection" port="Input" ID="Cruise" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Cruise">
+          <Sink device="Toggle" port="Input" ID="Cruise" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="Cruise">
+          <Sink device="LookupTable" port="Input" ID="Cruise" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="Cruise">
+          <Sink device="SimulatorInterface" port="CIS_Cruise_Control" ID="1" />
+        </Source> -->
+        <Source device="ButtonBox" port="Button 9" ID="1">
+          <Sink device="Debounce" port="Input" ID="Headlights" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="Headlights">
+          <Sink device="EdgeDetection" port="Input" ID="Headlights" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Headlights">
+          <Sink device="Toggle" port="Input" ID="Headlights" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="Headlights">
+          <Sink device="LookupTable" port="Input" ID="Headlights" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="Headlights">
+          <Sink device="SimulatorInterface" port="CIS_Headlights_On" ID="1" />
+        </Source>
+        <Source device="ButtonBox" port="Button 13" ID="1">
+          <Sink device="Debounce" port="Input" ID="Highbeams" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="Highbeams">
+          <Sink device="EdgeDetection" port="Input" ID="Highbeams" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Highbeams">
+          <Sink device="Toggle" port="Input" ID="Highbeams" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="Highbeams">
+          <Sink device="LookupTable" port="Input" ID="Highbeams" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="Highbeams">
+          <Sink device="SimulatorInterface" port="CIS_High_Beam" ID="1" />
+        </Source>
+        <Source device="ButtonBox" port="Button 15" ID="1">
+          <Sink device="Debounce" port="Input" ID="ParkingBrake" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="ParkingBrake">
+          <Sink device="EdgeDetection" port="Input" ID="ParkingBrake" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="ParkingBrake">
+          <Sink device="Toggle" port="Input" ID="ParkingBrake" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="ParkingBrake">
+          <Sink device="LookupTable" port="Input" ID="ParkingBrake" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="ParkingBrake">
+          <Sink device="SimulatorInterface" port="CIS_Parking_Brake_Engaged" ID="1" />
+        </Source>
+        <!--        <Source device="USB4" port="Digital Output 5" ID="1">
+          <Sink device="LookupTable" port="Input" ID="Seatbelt" />
+        </Source> -->
+        <Source device="Initializer" port="Output" ID="TurnOn">
+          <Sink device="SimulatorInterface" port="CIS_Seat_Belt_On" ID="1" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="TurnOff">
+          <Sink device="SimulatorInterface" port="CIS_Auto_Ignition" ID="1" />
+        </Source>
+    
+        <Source device="FanatecClubSport" port="Left Trigger" ID="1">
+          <Sink device="Debounce" port="Input" ID="LeftTurn" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="LeftTurn">
+          <Sink device="EdgeDetection" port="Input" ID="LeftTurn" />
+        </Source>
+    
+        <Source device="FanatecClubSport" port="Right Trigger" ID="1">
+          <Sink device="Debounce" port="Input" ID="RightTurn" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="RightTurn">
+          <Sink device="EdgeDetection" port="Input" ID="RightTurn" />
+        </Source>
+    
+        <Source device="ButtonBox" port="Button 11" ID="1">
+          <Sink device="Debounce" port="Input" ID="Hazards" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="Hazards">
+          <Sink device="EdgeDetection" port="Input" ID="Hazards" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Hazards">
+          <Sink device="Toggle" port="Input" ID="Hazards" />
+        </Source>
+
+        <Source device="EdgeDetection" port="Output" ID="LeftTurn">
+          <Sink device="LatchingTurnSignal" port="LeftTurn" ID="TurnSignals" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="RightTurn">
+          <Sink device="LatchingTurnSignal" port="RightTurn" ID="TurnSignals" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="Hazards">
+          <Sink device="LatchingTurnSignal" port="Hazards" ID="TurnSignals" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Steering">
+          <Sink device="LatchingTurnSignal" port="SteeringAngle" ID="TurnSignals" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_TRANS_Eng_Rnng" ID="1">
+          <Sink device="LatchingTurnSignal" port="EngineOn" ID="TurnSignals" />
+        </Source>
+        <Source device="LatchingTurnSignal" port="Output" ID="TurnSignals">
+          <Sink device="SimulatorInterface" port="CIS_Turn_Signal" ID="1" />
+        </Source>
+
+       
+        <Source device="FanatecClubSport" port="View Button" ID="1">
+          <Sink device="Debounce" port="Input" ID="LookLeft" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Debounce" port="Output" ID="LookLeft">
+          <Sink device="Multiplexer" port="Select 0" ID="LookLeft" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="NoTurning">
+          <Sink device="Multiplexer" port="Input 0" ID="LookLeft" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="LookLeft">
+          <Sink device="Multiplexer" port="Input 1" ID="LookLeft" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="LookLeft">
+          <Sink device="Multiplexer" port="Input 0" ID="LookRight" />
+        </Source>
+        <Source device="DirectInputWheel" port="Menu Button" ID="1">
+          <Sink device="Debounce" port="Input" ID="LookRight" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Debounce" port="Output" ID="LookRight">
+          <Sink device="Multiplexer" port="Select 0" ID="LookRight" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="LookRight">
+          <Sink device="Multiplexer" port="Input 1" ID="LookRight" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="LookRight">
+          <Sink device="Multiplexer" port="Input 0" ID="LeftShoulder" />
+        </Source>
+        <!-- if more buttons are avaialable, next 3 lines can be uncommented -->
+        <Source device="DirectInputWheel" port="View Button" ID="1">
+          <Sink device="Debounce" port="Input" ID="LeftShoulder" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="LeftShoulder">
+          <Sink device="Multiplexer" port="Select 0" ID="LeftShoulder" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="LeftShoulder">
+          <Sink device="Multiplexer" port="Input 1" ID="LeftShoulder" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="LeftShoulder">
+          <Sink device="Multiplexer" port="Input 0" ID="RightShoulder" />
+        </Source>
+        <!-- if more buttons are avaialable, next 3 lines can be uncommented -->
+        <Source device="DirectInputWheel" port="Menu Button" ID="1">
+          <Sink device="Debounce" port="Input" ID="RightShoulder" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="RightShoulder">
+          <Sink device="Multiplexer" port="Select 0" ID="RightShoulder" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="RightShoulder">
+          <Sink device="Multiplexer" port="Input 1" ID="RightShoulder" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="RightShoulder">
+          <Sink device="SimulatorInterface" port="CIS_Head_Turning_Switches" ID="1" />
+        </Source>
+        <Source device="ButtonBox" port="Button 5" ID="1">
+          <Sink device="Debounce" port="Input" ID="Wipers" /> <!-- Ok -->
+        </Source>
+        <Source device="Debounce" port="Output" ID="Wipers">
+          <Sink device="EdgeDetection" port="Input" ID="Wipers" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="Wipers">
+          <Sink device="Toggle" port="Input" ID="Wipers" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="Wipers">
+          <Sink device="LookupTable" port="Input" ID="Wipers" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="Wipers">
+          <Sink device="SimulatorInterface" port="CIS_Wiper_Switch_State" ID="1" />
+        </Source>
+        <Source device="ButtonBox" port="Button 1" ID="1">
+          <Sink device="Debounce" port="Input" ID="MirrorSelect" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Debounce" port="Output" ID="MirrorSelect">
+          <Sink device="EdgeDetection" port="Input" ID="MirrorSelect" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="MirrorSelect">
+          <Sink device="MirrorEncoder" port="Select" ID="Mirror" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- Ok -->
+        </Source>
+        <Source device="ButtonBox" port="Button 7" ID="1">
+          <Sink device="Debounce" port="Input" ID="MirrorUp" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="MirrorUp">
+          <Sink device="MirrorEncoder" port="Up" ID="Mirror" />
+        </Source>
+        <Source device="ButtonBox" port="Button 8" ID="1">
+          <Sink device="Debounce" port="Input" ID="MirrorDown" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="MirrorDown">
+          <Sink device="MirrorEncoder" port="Down" ID="Mirror" />
+        </Source>
+        <Source device="ButtonBox" port="Button 2" ID="1">
+          <Sink device="Debounce" port="Input" ID="MirrorLeft" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="MirrorLeft">
+          <Sink device="MirrorEncoder" port="Left" ID="Mirror" />
+        </Source>
+        <Source device="ButtonBox" port="Button 3" ID="1">
+          <Sink device="Debounce" port="Input" ID="MirrorRight" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="MirrorRight">
+          <Sink device="MirrorEncoder" port="Right" ID="Mirror" />
+        </Source>
+        <Source device="MirrorEncoder" port="Output" ID="Mirror">
+          <Sink device="SimulatorInterface" port="CIS_Mirror_Adjustment_Switches" ID="1" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+
+        
+        <!--  -->
+
+        <!-- <Source device="SteeringFeedbackModel" port="Constant" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Constant Feedback" ID="1" />
+        </Source> -->
+        <Source device="SteeringFeedbackModel" port="Constant" ID="SteeringFeedbackModel">
+          <Sink device="Subtracter" port="Input 0" ID="NegateModel" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- negative -->
+        </Source>
+        <Source device="Initializer" port="Output" ID="ZeroAsDouble">
+          <Sink device="Subtracter" port="Input 1" ID="NegateModel" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ZeroAsDouble">
+          <Sink device="Subtracter" port="Input 1" ID="NegateTracker" />
+        </Source>
+        <Source device="Subtracter" port="Output" ID="NegateModel">
+          <Sink device="Adder" port="Input 1" ID="CombineConstant" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- positive -->
+        </Source>
+        <Source device="Initializer" port="Output" ID="LKAZero">
+          <Sink device="Adder" port="Input 0" ID="CombineConstant" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Adder" port="Output" ID="CombineConstant">
+          <Sink device="Multiplexer" port="Input 0" ID="ConstantFeedback" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="Subtracter" port="Output" ID="NegateTracker">
+          <Sink device="Multiplexer" port="Input 1" ID="ConstantFeedback" />
+        </Source>
+        
+
+        <!--  -->
+
+        
+        <!-- <Source device="SteeringFeedbackModel" port="Damping Factor" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Damper Feedback Value" ID="1" />
+        </Source> -->
+        <Source device="SteeringFeedbackModel" port="Damping Factor" ID="SteeringFeedbackModel">
+          <Sink device="Multiplexer" port="Input 0" ID="DamperFeedback" />
+        </Source>
+        
+        <!-- <Source device="SteeringFeedbackModel" port="Damping Offset" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Damper Feedback Offset" ID="1" />
+        </Source> -->
+        <Source device="SteeringFeedbackModel" port="Damping Offset" ID="SteeringFeedbackModel">
+          <Sink device="Multiplexer" port="Input 0" ID="OffsetFeedback" />
+        </Source>
+      
+        <!-- BEGIN: AD(Autodriver mode) -->
+        <Source device="FanatecClubSport" port="Right Shoulder Button" ID="1"> 
+          <!-- <Source device="ButtonBox" port="Button 14" ID="1">    --> <!-- ojo sometimes kill SW motion if used -->
+          <Sink device="Debounce" port="Input" ID="autodriver" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Debounce" port="Output" ID="autodriver">
+          <Sink device="EdgeDetection" port="Input" ID="autodriver" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <!-- BEGIN: AD press Gas or Brake pedal -->
+        <!-- END: AD press Gas or Brake pedal -->
+        <Source device="EdgeDetection" port="Output" ID="autodriver">
+          <Sink device="Toggle" port="Input" ID="autodriver" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Toggle" port="Output" ID="autodriver">
+          <Sink device="LookupTable" port="Input" ID="autodriver" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="autodriver">
+          <Sink  device="SimulatorInterface" port="SCC_AutoDriver_ISAT_HI_Interface" ID="1"/>
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- Br_t1 -->
+        </Source>
+        <!-- END: AD -->
+
+        <!-- BEGIN: AD move SW-->
+        <Source device="SimulatorInterface" port="VDS_Wheel_Steer_Angle" index="0" ID="1">
+          <Sink device="SteeringAngleTracker" port="Steer Angle for Front Left Wheel" ID="SteeringTracker" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->  <!--  OK  -->
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Wheel_Steer_Angle" index="1" ID="1">
+          <Sink device="SteeringAngleTracker" port="Steer Angle for Front Right Wheel" ID="SteeringTracker" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->  <!--  OK  -->
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Veh_Speed" ID="1">
+          <Sink device="SteeringAngleTracker" port="Vehicle Speed" ID="SteeringTracker" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!--  OK  -->
+        </Source>
+        <Source device="Clamp" port="Output" ID="Steering">
+          <Sink device="SteeringAngleTracker" port="Steering Wheel Angle" ID="SteeringTracker" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!--  OK  -->
+        </Source>
+        <!-- <Source device="LookupTable" port="Output" ID="autodriver">
+          <Sink device="LookupTable" port="Input" ID="StatusMotionSW" />
+        </Source> -->
+        
+        <!-- <Source device="Toggle" port="Output" ID="autodriver">
+          <Sink device="SteeringAngleTracker" port="System Active" ID="SteeringTracker" />
+          <Sink device="ConsoleOutput" port="Standard out" ID="1" />
+        </Source> -->
+        <!-- BEGIN: logic intercomunication -->
+        <Source device="Toggle" port="Output" ID="autodriver">
+          <Sink device="LookupTable" port="Input" ID="ToggleStatusMotionSW1" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="Toggle" port="Output" ID="autodriver">
+          <Sink device="Inverter" port="Input" ID="InverterStatusMotionSW" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="Inverter" port="Output" ID="InverterStatusMotionSW">
+          <Sink device="LookupTable" port="Input" ID="ToggleStatusMotionSW2" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="LookupTable" port="Output" ID="ToggleStatusMotionSW2">
+          <Sink device="Multiplexer" port="Input 0" ID="StatusMotionSW_Multiplexer" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>      
+        <Source device="LookupTable" port="Output" ID="ToggleStatusMotionSW1">
+          <Sink device="Multiplexer" port="Input 1" ID="StatusMotionSW_Multiplexer" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="SimulatorInterface" port="SCC_AutoDriver_GasBrake_Status" ID="1">
+          <Sink device="LookupTable" port="Input" ID="from_C3_StatusMotionSW" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="LookupTable" port="Output" ID="from_C3_StatusMotionSW">
+          <Sink device="Multiplexer" port="Select 0" ID="StatusMotionSW_Multiplexer" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="StatusMotionSW_Multiplexer">
+          <Sink device="LookupTable" port="Input" ID="MultiFinalStatusMotionSW" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+
+        <!--  -->
+        <!-- <Source device="LookupTable" port="Output" ID="MultiFinalStatusMotionSW">
+          <Sink device="SteeringAngleTracker" port="System Active" ID="SteeringTracker" />
+        </Source> -->
+        <Source device="LookupTable" port="Output" ID="MultiFinalStatusMotionSW">
+          <Sink device="Multiplexer" port="Select 0" ID="Status_ADwithSwm" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="Initialize_ON_ADwithSwm">
+          <Sink device="Multiplexer" port="Input 1" ID="Status_ADwithSwm" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="Status_LF">
+          <Sink device="Multiplexer" port="Input 0" ID="Status_ADwithSwm" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="Table_LF_VDS_ALF_State">
+          <Sink device="Multiplexer" port="Select 0" ID="Status_LF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="Initialize_OFF_LF">
+          <Sink device="Multiplexer" port="Input 0" ID="Status_LF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="Initialize_ON_LF">
+          <Sink device="Multiplexer" port="Input 1" ID="Status_LF" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_ALF_State" ID="1">
+          <Sink device="LookupTable" port="Input" ID="Table_LF_VDS_ALF_State" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="Status_ADwithSwm">
+          <Sink device="Multiplexer" port="Input 0" ID="SMotionFromISAToHI" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="OneISAT">
+          <Sink device="Multiplexer" port="Input 1" ID="SMotionFromISAToHI" />
+        </Source>
+        <Source device="SimulatorInterface" port="SCC_AutoDriver_ONOFF_ISAT" ID="1">
+          <Sink device="LookupTable" port="Input" ID="LTONOFF_02" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="LTONOFF_02">
+          <Sink device="Multiplexer" port="Select 0" ID="SMotionFromISAToHI" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="SMotionFromISAToHI">
+          <Sink device="LookupTable" port="Input" ID="SteeringTracker" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="SteeringTracker">
+          <Sink device="Multiplexer" port="Select 0" ID="Steering" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Steering">
+          <Sink device="Multiplexer" port="Input 0" ID="Steering" />
+        </Source>
+        <Source device="Buffer" port="Output" ID="Steering">
+          <Sink device="Multiplexer" port="Input 1" ID="Steering" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="Steering">
+          <Sink device="SimulatorInterface" port="CFS_Steering_Wheel_Angle" ID="1" />
+          <Sink device="Buffer" port="Input" ID="Steering" />
+        </Source>
+
+        <Source device="LookupTable" port="Output" ID="SteeringTracker">
+          <Sink device="SteeringAngleTracker" port="System Active" ID="SteeringTracker" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="LookupTable" port="Output" ID="SteeringTracker">
+          <Sink device="Multiplexer" port="Select 0" ID="ConstantFeedback" />
+          <Sink device="Multiplexer" port="Select 0" ID="DamperFeedback" />
+          <Sink device="Multiplexer" port="Select 0" ID="OffsetFeedback" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+
+        <!--  -->
+
+
+        <Source device="LookupTable" port="Output" ID="MultiFinalStatusMotionSW">
+          <Sink device="LookupTable" port="Input" ID="autodriver2" />
+        </Source>
+        <Source device="LookupTable" port="Output" ID="autodriver2">
+          <Sink device="SimulatorInterface" port="SCC_AD_ISAT_HI_Final" ID="1" />
+        </Source>
+        <!-- END: logic intercomunication -->
+
+
+        <!--  -->
+        <!-- <Source device="SteeringAngleTracker" port="Constant" ID="SteeringTracker" >
+          <Sink device="FanatecClubSport" port="Constant Feedback" ID="1" />
+        </Source> -->
+        <Source device="SteeringAngleTracker" port="Constant" ID="SteeringTracker">
+          <Sink device="Subtracter" port="Input 0" ID="NegateTracker" />
+        </Source>
+        <Source device="SteeringAngleTracker" port="Damping Factor" ID="SteeringTracker">
+          <Sink device="Multiplexer" port="Input 1" ID="DamperFeedback" />
+        </Source>
+        <Source device="SteeringAngleTracker" port="Damping Offset" ID="SteeringTracker">
+          <Sink device="Multiplexer" port="Input 1" ID="OffsetFeedback" />
+        </Source>
+        <!--  -->
+
+
+        <!-- <Source device="Initializer" port="Output" ID="ZeroAsDouble">
+          <Sink device="FanatecClubSport" port="Damper Feedback Value" ID="1" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ZeroAsDouble">
+          <Sink device="FanatecClubSport" port="Damper Feedback Offset" ID="1" />
+        </Source> -->
+        <!-- END: AD move SW-->
+
+        <!-- BEGIN: ACC and ALF --> <!-- =================================== -->
+        <!-- BEGIN: ACC and ALF -->
+        <Source device="FanatecClubSport" port="X Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 7" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="CCSet" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="CCSet">
+          <Sink device="Multiplexer" port="Select 0" ID="CruiseControl" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="FanatecClubSport" port="Left Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 12" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="CruiseControl" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="CruiseControl">
+          <Sink device="EdgeDetection" port="Input" ID="CruiseControl" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="CruiseControl">
+          <Sink device="Toggle" port="Input" ID="CruiseControl" />
+        </Source>
+        <!--  -->
+        <Source device="Toggle" port="Output" ID="CruiseControl">
+          <Sink device="OR" port="Input 0" ID="ControlCC" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <!-- <Source device="Inverter" port="Output" ID="ProlongCC"> -->
+        <Source device="AND" port="Output" ID="DisengageACC">
+          <Sink device="OR" port="Input 1" ID="ControlCC" />
+        </Source>
+        <Source device="OR" port="Output" ID="ControlCC">          
+          <Sink device="Multiplexer" port="Select 1" ID="CruiseControl" />
+        </Source>
+        <!--  -->
+        <Source device="FanatecClubSport" port="View Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 26" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="CCCancel" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="CCCancel">
+          <Sink device="Multiplexer" port="Select 2" ID="CruiseControl" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="FanatecClubSport" port="Y Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 2" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="CCResume" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="CCResume">
+          <Sink device="Multiplexer" port="Select 3" ID="CruiseControl" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="Initializer" port="Output" ID="CCOff">
+          <Sink device="Multiplexer" port="Input 0" ID="CruiseControl" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="CCOn">
+          <Sink device="Multiplexer" port="Input 2" ID="CruiseControl" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="CCSet">
+          <Sink device="Multiplexer" port="Input 1" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 3" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 9" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 11" ID="CruiseControl" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="CCResume">
+          <Sink device="Multiplexer" port="Input 8" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 10" ID="CruiseControl" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="CCCancel">
+          <Sink device="Multiplexer" port="Input 4" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 5" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 6" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 7" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 12" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 13" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 14" ID="CruiseControl" />
+          <Sink device="Multiplexer" port="Input 15" ID="CruiseControl" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="CruiseControl">
+          <Sink device="SimulatorInterface" port="CIS_Auxiliary_Buttons" index="2" ID="1" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+
+        <Source device="FanatecClubSport" port="A Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 22" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="ACCDecrease" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="ACCDecrease">
+          <Sink device="Multiplexer" port="Select 0" ID="ALF" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <Source device="Initializer" port="Output" ID="False">
+          <Sink device="Debounce" port="Input" ID="ACCRecall" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="ACCRecall">
+          <Sink device="Multiplexer" port="Select 1" ID="ALF" />
+        </Source>
+        <Source device="FanatecClubSport" port="Right Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 4" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="ALF" />
+        </Source>
+        <!--        <Source device="Initializer" port="Output" ID="False">
+          <Sink device="Debounce" port="Input" ID="ALF" />
+        </Source> -->
+        <Source device="Debounce" port="Output" ID="ALF">
+          <Sink device="ALFController" port="ALF Button" ID="ALF" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="Steering">
+          <Sink device="ALFController" port="Steering Angle" ID="ALF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ZeroAsFloat">
+          <Sink device="ALFController" port="Driver Torque" ID="ALF" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_ALF_State" ID="1">
+          <Sink device="ALFController" port="ALF State" ID="ALF" />
+        </Source>
+        <Source device="ALFController" port="Output" ID="ALF">
+          <Sink device="Multiplexer" port="Select 2" ID="ALF" />
+        </Source>
+        <Source device="FanatecClubSport" port="B Button" ID="1">
+          <!-- <Source device="DirectInputWheel" port="Button 10" ID="1"> -->
+          <Sink device="Debounce" port="Input" ID="ACCIncrease" />
+        </Source>
+        <Source device="Debounce" port="Output" ID="ACCIncrease">
+          <Sink device="Multiplexer" port="Select 3" ID="ALF" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> --> <!-- OK -->
+        </Source>
+        <!--  -->
+
+        <Source device="Initializer" port="Output" ID="OneAsShort">
+          <Sink device="EqualityTester" port="Input 0" ID="EqualsCCOn" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="TwoAsShort">
+          <Sink device="EqualityTester" port="Input 0" ID="EqualsCCSet" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Cruise_State" ID="1">
+          <Sink device="EqualityTester" port="Input 1" ID="EqualsCCOn" />
+          <Sink device="EqualityTester" port="Input 1" ID="EqualsCCSet" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="EqualityTester" port="Output" ID="EqualsCCOn">
+          <Sink device="OR" port="Input 0" ID="EqualsCCOnOrSet" />
+        </Source>
+        <Source device="EqualityTester" port="Output" ID="EqualsCCSet">
+          <Sink device="OR" port="Input 1" ID="EqualsCCOnOrSet" />
+        </Source>
+        <Source device="Toggle" port="Output" ID="CruiseControl">
+          <Sink device="AND" port="Input 0" ID="EngageACC" />
+        </Source>
+        <Source device="OR" port="Output" ID="EqualsCCOnOrSet">
+          <Sink device="AND" port="Input 1" ID="EngageACC" />
+        </Source>
+        <Source device="AND" port="Output" ID="EngageACC">
+          <Sink device="EdgeDetection" port="Input" ID="TriggerACCOn" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="TriggerACCOn">
+          <Sink device="OR" port="Input 0" ID="ControlACC" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ThreeAsShort">
+          <Sink device="EqualityTester" port="Input 0" ID="EqualsACCOn" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="FourAsShort">
+          <Sink device="EqualityTester" port="Input 0" ID="EqualsACCSet" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Cruise_State" ID="1">
+          <Sink device="EqualityTester" port="Input 1" ID="EqualsACCOn" />
+          <Sink device="EqualityTester" port="Input 1" ID="EqualsACCSet" />
+        </Source>
+        <Source device="EqualityTester" port="Output" ID="EqualsACCOn">
+          <Sink device="OR" port="Input 0" ID="EqualsACCOnOrSet" />
+        </Source>
+        <Source device="EqualityTester" port="Output" ID="EqualsACCSet">
+          <Sink device="OR" port="Input 1" ID="EqualsACCOnOrSet" />
+        </Source>
+        <Source device="OR" port="Output" ID="EqualsACCOnOrSet">
+          <Sink device="AND" port="Input 1" ID="DisengageACC" />
+        </Source>
+
+        <Source device="Toggle" port="Output" ID="CruiseControl">
+          <Sink device="Inverter" port="Input" ID="DisengageACC" />
+        </Source>
+        <Source device="Inverter" port="Output" ID="DisengageACC">
+          <Sink device="EdgeDetection" port="Input" ID="TriggerACCOff" />
+        </Source>
+        <Source device="EdgeDetection" port="Output" ID="TriggerACCOff">
+          <Sink device="AND" port="Input 0" ID="DisengageACC" />
+        </Source>
+        <Source device="AND" port="Output" ID="DisengageACC">
+          <Sink device="OR" port="Input 1" ID="ControlACC" />
+          <Sink device="Inverter" port="Input" ID="ProlongCC" />
+        </Source>
+        <Source device="OR" port="Output" ID="ControlACC">
+          <Sink device="Multiplexer" port="Select 4" ID="ALF" />
+        </Source>
+        <!--  -->
+        <Source device="Initializer" port="Output" ID="ACCNOP">
+          <Sink device="Multiplexer" port="Input 0" ID="ALF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ACCRecall">
+          <Sink device="Multiplexer" port="Input 2" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 6" ID="ALF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ACCIncrease">
+          <Sink device="Multiplexer" port="Input 8" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 10" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 12" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 14" ID="ALF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ACCDecrease">
+          <Sink device="Multiplexer" port="Input 1" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 3" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 5" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 7" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 9" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 11" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 13" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 15" ID="ALF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ALF">
+          <Sink device="Multiplexer" port="Input 4" ID="ALF" />
+        </Source>
+        <Source device="Initializer" port="Output" ID="ACC">
+          <Sink device="Multiplexer" port="Input 16" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 17" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 18" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 19" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 20" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 21" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 22" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 23" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 24" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 25" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 26" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 27" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 28" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 29" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 30" ID="ALF" />
+          <Sink device="Multiplexer" port="Input 31" ID="ALF" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="ALF">
+          <Sink device="SimulatorInterface" port="CIS_Auxiliary_Buttons" index="3" ID="1" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <!-- END: ACC and ALF -->
+       
+        <!-- END  : ACC and ALF --> <!-- =================================== -->
+        <Source device="SteeringFeedbackModel" port="Positive Spring" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Positive Spring Feedback" ID="1" />
+        </Source>
+        <Source device="SteeringFeedbackModel" port="Negative Spring" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Negative Spring Feedback" ID="1" />
+        </Source>
+        <Source device="SteeringFeedbackModel" port="Fundamental Sinusoidal Force" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Fundamental Sinusoidal Feedback Force" ID="1" />
+        </Source>
+        <Source device="SteeringFeedbackModel" port="Fundamental Sinusoidal Frequency" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Fundamental Sinusoidal Feedback Frequency" ID="1" />
+        </Source>
+        <Source device="SteeringFeedbackModel" port="Secondary Sinusoidal Force" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Secondary Sinusoidal Feedback Force" ID="1" />
+        </Source>
+        <Source device="SteeringFeedbackModel" port="Secondary Sinusoidal Frequency" ID="SteeringFeedbackModel" >
+          <Sink device="FanatecClubSport" port="Secondary Sinusoidal Feedback Frequency" ID="1" />
+        </Source>
+
+        <Source device="Clamp" port="Output" ID="Steering">
+          <Sink device="SteeringFeedbackModel" port="Steering Wheel Angle" ID="SteeringFeedbackModel" />
+        </Source>
+        <Source device="Clamp" port="Output" ID="SteeringRate">
+          <Sink device="SteeringFeedbackModel" port="Steering Wheel Rate" ID="SteeringFeedbackModel" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Veh_Eng_RPM" ID="1">
+          <Sink device="SteeringFeedbackModel" port="Engine RPM" ID="SteeringFeedbackModel" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Veh_Eng_Torque" ID="1">
+          <Sink device="SteeringFeedbackModel" port="Engine Torque" ID="SteeringFeedbackModel" />
+        </Source>
+        <Source device="SimulatorInterface" port="VDS_Veh_Speed" ID="1">
+          <Sink device="SteeringFeedbackModel" port="Vehicle Speed" ID="SteeringFeedbackModel" />
+        </Source>
+
+        <Source device="Multiplexer" port="Output" ID="ConstantFeedback">
+          <Sink device="FanatecClubSport" port="Constant Feedback" ID="1" />
+          <!-- <Sink device="ConsoleOutput" port="Standard out" ID="1" /> -->
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="DamperFeedback">
+          <Sink device="FanatecClubSport" port="Damper Feedback Value" ID="1" />
+        </Source>
+        <Source device="Multiplexer" port="Output" ID="OffsetFeedback">
+          <Sink device="FanatecClubSport" port="Damper Feedback Offset" ID="1" />
+        </Source>
+
+
+
+        <!-- <Source device="FanatecClubSport" port="Right Shoulder Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Right Trigger" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Right Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="A Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Left Trigger" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Left Shoulder Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Left Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="View Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Y Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="Menu Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="X Button" ID="1">  -->
+        <!-- <Source device="FanatecClubSport" port="B Button" ID="1"> 
+        
+          <Sink device="ConsoleOutput" port="Standard out" ID="1" />
+        </Source> -->
+
+      </Connections>
+    </HardwareInterface>
+  </miniSim>
+</NADS>
