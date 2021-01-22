@@ -14,9 +14,6 @@ def home():
 def device():
     return render_template("template.html", device=device1Name)
 
-#@app.route('/devices/<device>')
-#def device(device):
-#    return render_template("template.html", device=device)
 
 if __name__== "__main__":
     app.run()
