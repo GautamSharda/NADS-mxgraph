@@ -66,11 +66,8 @@
       style="position:relative;overflow:auto;width:1000px;height:500px;background:url('/static/node_modules/mxgraph/javascript/images/grid.gif');cursor:default;">
       </div>
    
-      <a href="{{ url_for('device') }}" class="button">Device 1</a>
-
-
-
-
-
+      <a href=" {{ url_for('device', index=0) }} " class="button">Device 1</a>
+      <a href=" {{ url_for('device', index=17) }} " class="button">Multiplexer; ID = Shifter;</a>
+   
 </body>
 </html>
