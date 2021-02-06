@@ -37,10 +37,23 @@
             try
             {
                var v1 = graph.insertVertex(parent, null,
-                        '{{ device }}', 20, 20, 120, 100);
+                        '{{deviceName}}, {{deviceKind}}, {{deviceID}}', 750, 20, 160, 30);
                var v2 = graph.insertVertex(parent, null,
-                        'World!', 200, 150, 80, 30);
+                        'settings', 200, 150, 80, 30);
                var e1 = graph.insertEdge(parent, null, '', v1, v2);
+               
+               var v3 = graph.insertVertex(parent, null,
+                        'name={{setting1Name}}, unit={{setting1Unit}}', 200, 300, 160, 30); //missing 'type' because it causes error
+               var e2 = graph.insertEdge(parent, null, '', v2, v3);
+               
+               var v4 = graph.insertVertex(parent, null,
+                        'ports', 1300, 150, 80, 30);
+               var e3 = graph.insertEdge(parent, null, '', v1, v4);
+
+               var v5 = graph.insertVertex(parent, null,
+                        'name={{ port1Name }}, type={{port1Type}}, unit={{port1Unit}}', 1300, 300, 200, 30);
+               var e4 = graph.insertEdge(parent, null, '', v4, v5);
+
             }
             finally
             {
@@ -60,7 +73,7 @@
    <body onload="main(document.getElementById('graphContainer'))">
       <!-- Creates a container for the graph with a grid wallpaper -->
       <div id="graphContainer"
-         style="position:relative;overflow:auto;width:1000px;height:500px;background:url('../static/node_modules/mxgraph/javascript/images/grid.gif');cursor:default;">
+         style="position:relative;overflow:auto;width:5000px;height:1000px;background:url('../static/node_modules/mxgraph/javascript/images/grid.gif');cursor:default;">
       </div>
    <h1>Hello</h1>
 
