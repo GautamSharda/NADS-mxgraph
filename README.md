@@ -2,7 +2,7 @@
 
 ## Overview
 
-A simple web app that utilizes mxgraph. Here is the online deployment of the app on heroku: https://nads-mxgraph.herokuapp.com/
+A simple web app that utilizes mxgraph. Here is the online deployment of the app on heroku (this is undergoing changes and doesn't work as of now): https://nads-mxgraph.herokuapp.com/
 
 ## how to deploy it locally on your device
 
